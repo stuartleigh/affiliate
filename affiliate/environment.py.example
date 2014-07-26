@@ -1,0 +1,26 @@
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+SECRET_KEY = ''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'affiliate',
+        'USER': 'root',
+        'PASSWORD': '',
+    }
+}
+
+DEBUG = True
+
+TEMPLATE_DEBUG = DEBUG
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+STATIC_URL = 'http://localhost:9000/static/'
+MEDIA_URL = 'http://localhost:9000/media/'
+
+INTERNAL_IPS = ('127.0.0.1',)

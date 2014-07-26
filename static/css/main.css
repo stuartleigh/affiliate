@@ -1,0 +1,258 @@
+/*! normalize.css v1.1.2 | MIT License | git.io/normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-size:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}button,html,input,select,textarea{font-family:sans-serif}body{margin:0}a:focus{outline:dotted thin}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}h2{font-size:1.5em;margin:.83em 0}h3{font-size:1.17em;margin:1em 0}h4{font-size:1em;margin:1.33em 0}h5{font-size:.83em;margin:1.67em 0}h6{font-size:.67em;margin:2.33em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}blockquote{margin:1em 40px}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}p,pre{margin:1em 0}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:none}q:after,q:before{content:'';content:none}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}dl,menu,ol,ul{margin:1em 0}dd{margin:0 0 0 40px}menu,ol,ul{padding:0 0 0 40px}nav ol,nav ul{list-style:none}img{border:0;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}figure,form{margin:0}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0;white-space:normal}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline}button,input{line-height:normal}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+
+/*! clearfix */
+.clearfix:after,.clearfix:before{content:" ";display:table}.clearfix:after{clear:both}
+
+
+/* Site styles */
+
+body, html {
+	height: 100%;
+	min-height: 100%;
+	background-color: #fff;
+}
+
+#header {
+
+}
+
+#header {
+	font-family: "Open Sans", sans-serif;
+	background: #000;
+	position: fixed;
+	width: 100%;
+	z-index: 2000;
+	border-bottom: 1px solid #333;
+}
+
+#header h1 {
+	font-size: 1em;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 15px;
+}
+
+#header h1 a {
+	color: #fff;
+	text-decoration: none;
+}
+
+main {
+	overflow-x: hidden;
+}
+
+.promo-slide {
+	position: relative;
+}
+
+.promo-slide .slide-container{
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center center;
+	width: 100%;
+	height: 100%;
+}
+
+.promo-info {
+	position: absolute;
+	color: #fff;
+	top: 20%;
+	left: 10%;
+	max-width: 80%;
+	border: 1px solid #fff;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2.promo-info-title {
+	font-size: 1em;
+	padding: 15px 20px;
+	border-bottom: 1px solid #fff;
+	margin: 0;
+}
+
+.promo-info-price {
+	display: block;
+	float: left;
+	width: 33%;
+	text-align: center;
+	padding: 15px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+a.promo-info-link {
+	display: block;
+	float: right;
+	width: 67%;
+	border-left: 1px solid #fff;
+	padding: 15px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+}
+
+a.promo-info-link:hover {
+	color: #000;
+	background: #fff;
+}
+
+.product-list, .product-list li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.site-story {
+	padding: 40px 20px;
+}
+
+.site-story h1 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 3em;
+	font-weight: 800;
+	text-align: center;
+	margin-top: 0;
+}
+
+.site-story p {
+	font-family: 'Gentium Book Basic', serif;
+	font-size: 16px;
+	max-width: 960px;
+	margin: auto;
+	line-height: 1.5em;
+}
+
+.product-list {
+	background: #000;
+}
+
+.product {
+	width: 20%;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+.product img {
+	width: 100%;
+	display: block;
+}
+
+@media only screen and (max-width: 870px) {
+	.product {
+		width: 25%;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	.product {
+		width: 50%;
+	}
+}
+
+figure img {
+	position: relative;
+	display: block;
+	opacity: 1;
+}
+
+figure figcaption {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+figure figcaption::before,
+figure figcaption::after {
+	pointer-events: none;
+}
+
+figure figcaption,
+figure a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+figure a {
+	z-index: 1000;
+	text-indent: 200%;
+	white-space: nowrap;
+	font-size: 0;
+	opacity: 0;
+}
+
+figure h2 {
+	padding: 15px;
+	text-align: left;
+	opacity: 0;
+	font-family: "Gentium Book Basic", sans-serif;
+	font-size: 1em;
+	margin: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(-40px,0,0);
+	transform: translate3d(-40px,0,0);
+}
+
+figure .product-view {
+	font-family: "Open Sans", sans-serif;
+	font-size: 0.7em;
+	border: 1px solid #fff;
+	padding: 10px;
+	display: block;
+	width: 90%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: center;
+	margin-left: -45%;
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,40px,0);
+	transform: translate3d(0,40px,0);
+}
+
+@media only screen and (max-width: 870px) {
+	figure .product-view {
+		display: none;
+	}
+}
+
+figure:hover img {
+	opacity: 0.6;
+	-webkit-transform: translate3d(0,0,0) scale(1);
+	transform: translate3d(0,0,0) scale(1);
+}
+
+figure:hover h2 {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+figure:hover .product-view {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+footer {
+	background: #000;
+	text-align: right;
+	padding: 10px 25px;
+	color: #ccc;
+	font-size: 12px;
+	font-family: 'Gentium Book Basic', serif;
+}
