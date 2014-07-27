@@ -45,42 +45,12 @@
 					</figcaption>
 				</figure>
 				{% endfor %}
-				{% for product in products %}
-				<figure class="product">
-					<img src="{{ product.image.url }}">
-					<figcaption>
-						<h2>{{ product.title }}</h2>
-						<span class="product-view">View details</span>
-						<a href="{{ product.url }}">View details</a>
-					</figcaption>
-				</figure>
-				{% endfor %}
-				{% for product in products %}
-				<figure class="product">
-					<img src="{{ product.image.url }}">
-					<figcaption>
-						<h2>{{ product.title }}</h2>
-						<span class="product-view">View details</span>
-						<a href="{{ product.url }}">View details</a>
-					</figcaption>
-				</figure>
-				{% endfor %}
-				{% for product in products %}
-				<figure class="product">
-					<img src="{{ product.image.url }}">
-					<figcaption>
-						<h2>{{ product.title }}</h2>
-						<span class="product-view">View details</span>
-						<a href="{{ product.url }}">View details</a>
-					</figcaption>
-				</figure>
-				{% endfor %}
 			</div>
 		</main>
 		<footer>
 			&copy; {% now "Y" %} {{ site.name }}
 		</footer>
-		
+
 		<script>
 			{% if debug %}/* -- commented for debug --{% endif %}
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
