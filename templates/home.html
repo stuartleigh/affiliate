@@ -1,66 +1,35 @@
-{% load staticfiles %}
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-		<meta name="description" content="{{ site.meta_description }}">
+{% extends 'base.html' %}
 
-		<title>{{ site.meta_title }}</title>
-		
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-	</head>
-	<body>
-		<header id="header">
-			<h1><a href="/">{{ site.name }}</a></h1>
-		</header>
-		<main>
-			{% for promo in promos %}
-			<section id="slide-{{ forloop.counter }}" class="promo-slide">
-				<div class="slide-container" style="background-image: url('{{ promo.promo_image.url }}');">
-					<div class="promo-info clearfix">
-						<h2 class="promo-info-title">{{ promo.title }}</h2>
-						<div class="promo-info-details">
-							<span class="promo-info-price">{{ promo.currency.symbol }}{{ promo.price }}</span>
-							<a class="promo-info-link" href="{{ promo.url }}">View details</a>
-						</div>
+{% block content %}
+	<main>
+		{% for promo in promos %}
+		<section id="slide-{{ forloop.counter }}" class="promo-slide">
+			<div class="slide-container" style="background-image: url('{{ promo.promo_image.url }}');">
+				<div class="promo-info clearfix">
+					<h2 class="promo-info-title">{{ promo.title }}</h2>
+					<div class="promo-info-details">
+						<span class="promo-info-price">{{ promo.currency.symbol }}{{ promo.price }}</span>
+						<a class="promo-info-link" href="{{ promo.get_absolute_url }}">View details</a>
 					</div>
 				</div>
-			</section>
-			{% endfor %}
-			<section class="site-story">
-				<h1>{{ site.name }}</h1>
-				<p>{{ site.story }}</p>
-			</section>
-			<div class="product-list clearfix">
-				{% for product in products %}
-				<figure class="product">
-					<img src="{{ product.image.url }}">
-					<figcaption>
-						<h2>{{ product.title }}</h2>
-						<span class="product-view">View details</span>
-						<a href="{{ product.url }}">View details</a>
-					</figcaption>
-				</figure>
-				{% endfor %}
 			</div>
-		</main>
-		<footer>
-			&copy; {% now "Y" %} {{ site.name }}
-		</footer>
-
-		<script>
-			{% if debug %}/* -- commented for debug --{% endif %}
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-			ga('create', '{{ site.tracking_code }}', 'auto');
-			ga('send', 'pageview');
-			{% if debug %}-- commented for debug -- */{% endif %}
-		</script>
-	</body>
-</html?
+		</section>
+		{% endfor %}
+		<section class="site-story">
+			<h1>{{ site.name }}</h1>
+			<p>{{ site.story }}</p>
+		</section>
+		<div class="product-list clearfix">
+			{% for product in products %}
+			<figure class="product">
+				<img src="{{ product.image.url }}">
+				<figcaption>
+					<h2>{{ product.title }}</h2>
+					<span class="product-view">View details</span>
+					<a href="{{ product.get_absolute_url }}">View details</a>
+				</figcaption>
+			</figure>
+			{% endfor %}
+		</div>
+	</main>
+{% endblock %}

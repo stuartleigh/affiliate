@@ -9,5 +9,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ('index',)
     list_filter = ('is_active', 'is_promo', 'site__domain')
 
+    prepopulated_fields = {"slug": ("title",)}
+
 
 admin.site.register(Currency)

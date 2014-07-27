@@ -3,7 +3,7 @@ from django.db import models
 
 class Site(models.Model):
 	name = models.CharField(max_length=255, unique=True)
-	domain = models.CharField(max_length=255)
+	domain = models.CharField(max_length=255, db_index=True)
 
 	meta_title = models.TextField(blank=True)
 	meta_description = models.TextField(blank=True)
