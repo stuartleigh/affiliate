@@ -14,7 +14,8 @@ body, html {
 }
 
 body {
-	padding-top: 31px;
+	padding-top: 53px;
+	font-family: 'Gentium Book Basic', serif;
 }
 
 #header {
@@ -141,6 +142,7 @@ a.promo-info-link:hover {
 	display: block;
 	float: left;
 	position: relative;
+	overflow: hidden;
 }
 
 .product img {
@@ -154,33 +156,32 @@ a.promo-info-link:hover {
 	}
 }
 
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 480px) {
 	.product {
 		width: 50%;
 	}
 }
 
-figure img {
+figure.product img {
 	position: relative;
 	display: block;
 	opacity: 1;
 }
 
-figure figcaption {
+figure.product figcaption {
 	color: #fff;
-	text-transform: uppercase;
 	font-size: 1.25em;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
-figure figcaption::before,
-figure figcaption::after {
+figure.product figcaption::before,
+figure.product figcaption::after {
 	pointer-events: none;
 }
 
-figure figcaption,
-figure a {
+figure.product figcaption,
+figure.product a {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -188,7 +189,7 @@ figure a {
 	height: 100%;
 }
 
-figure a {
+figure.product a {
 	z-index: 1000;
 	text-indent: 200%;
 	white-space: nowrap;
@@ -196,7 +197,7 @@ figure a {
 	opacity: 0;
 }
 
-figure h2 {
+figure.product h2 {
 	padding: 15px;
 	text-align: left;
 	opacity: 0;
@@ -209,7 +210,7 @@ figure h2 {
 	transform: translate3d(-20px,0,0);
 }
 
-figure .product-view {
+figure.product .product-view {
 	font-family: "Open Sans", sans-serif;
 	font-size: 0.7em;
 	border: 1px solid #fff;
@@ -231,27 +232,185 @@ figure .product-view {
 }
 
 @media only screen and (max-width: 870px) {
-	figure .product-view {
+	figure.product .product-view {
 		display: none;
 	}
 }
 
-figure:hover img {
+figure.product:hover img {
 	opacity: 0.6;
 	-webkit-transform: translate3d(0,0,0) scale(1);
 	transform: translate3d(0,0,0) scale(1);
 }
 
-figure:hover h2 {
+figure.product:hover h2 {
 	opacity: 1;
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 }
 
-figure:hover .product-view {
+figure.product:hover .product-view {
 	opacity: 1;
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
+}
+
+main.product-detail {
+	background: #fff;
+	padding: 20px;
+}
+
+.product-promo {
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center center;
+	width: 100%;
+	height: 500px;
+}
+
+.product-promo hgroup {
+	max-width: 960px;
+	padding: 60px 20px;
+	margin: auto;
+}
+
+.product-promo hgroup a {
+	display: block;
+	float: left;
+	border: 1px solid #fff;
+	padding: 15px 30px;
+	color: #fff;
+	text-decoration: none;
+	font-family: "Open Sans", sans-serif;
+}
+
+.product-promo hgroup a:hover {
+	color: #000;
+	background: #fff;
+}
+
+.product-detail-main {
+	max-width: 960px;
+	margin: auto;
+}
+
+.product-detail-image {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 50%;
+	padding-right: 10px;
+	float: left;
+}
+
+.product-detail-image img {
+	width: 100%;
+}
+
+.product-detail-meta {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 50%;
+	padding-left: 10px;
+	float: right;
+}
+
+.product-detail-meta a {
+	font-family: "Open sans", sans-serif;
+	color: #000;
+	text-decoration: none;
+	border: 1px solid #000;
+	padding: 15px 40px;
+	display: inline-block;
+}
+
+.product-detail-meta a:hover {
+	color: #fff;
+	background: #000;
+}
+
+.product-detail-meta .product-detail-price {
+	font-size: 1.5em;
+	margin-bottom: 1em;
+}
+
+.product-detail-description {
+	max-width: 960px;
+	margin: auto;
+	padding: 40px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.product-detail-description p {
+	font-family: 'Gentium Book Basic', serif;
+	font-size: 16px;
+	max-width: 960px;
+	margin: auto;
+	line-height: 1.5em;
+}
+
+.product-detail-meta h1 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 3em;
+	font-weight: 800;
+	margin-top: 0;
+}
+
+.product-detail-similar {
+	max-width: 960px;
+	margin: auto;
+}
+
+.product-detail-similar h3 {
+	font-family: 'Gentium Book Basic', serif;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.product-detail-similar h4 {
+	font-family: 'Gentium Book Basic', serif;
+	font-size: 1em;
+}
+
+.product-detail-similar-product {
+	width: 25%;
+	float: left;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 10px;
+}
+
+.product-detail-similar-product img {
+	width: 100%;
+}
+
+@media only screen and (max-width: 568px) {
+	.product-detail-image {
+		width: 100%;
+		padding-right: 0;
+		float: none;
+	}
+
+	.product-detail-meta {
+		width: 100%;
+		padding-left: 0;
+		float: none;
+	}
+
+	.product-detail-meta h1 {
+		font-size: 2em;
+	}
+
+	.product-detail-similar-product {
+		width: 50%;
+	}
+}
+
+@media only screen and (max-width: 568px) {
+	.product-detail-meta a {
+		display: block;
+		text-align: center;
+	}
 }
 
 footer {

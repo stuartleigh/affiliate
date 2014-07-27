@@ -14,6 +14,7 @@ def product_detail(request, slug):
 	context = {
 		'product': product,
 		'site': request.site,
+		'similar_products': product.similar_products(count=4),
 	}
 
 	return render(request, "detail.html", context)

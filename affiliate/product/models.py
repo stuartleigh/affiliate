@@ -1,3 +1,5 @@
+from random import shuffle
+
 from django.core.urlresolvers import reverse
 from django.db import models
 
@@ -46,6 +48,11 @@ class Product(models.Model):
 			path=self.external_path,
 			code=site.affiliate_tracking_code
 		)
+
+	def similar_products(self, count=4):
+		products = list(Product.objects.filter(site_id=self.site_id).exclude(id=self.id))
+		shuffle(products)
+		return products[:count]
 
 
 class Currency(models.Model):

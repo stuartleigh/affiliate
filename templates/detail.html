@@ -1,5 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<h1>{{ product.title }}</h1>
+	{% if product.promo_image %}
+		<header class="product-promo" style="background-image: url('{{ product.promo_image.url }}');">
+			<hgroup class="clearfix">
+				<a href="{{ product.url }}">View on {{ product.partner_site }}</a>
+			</hgroup>
+		</header>
+	{% endif %}
+	<main class="product-detail">
+		<section class="product-detail-main clearfix">
+			<figure class="product-detail-image">
+				<img src="{{ product.image.url }}">
+			</figure>
+			<div class="product-detail-meta">
+				<h1>{{ product.title }}</h1>
+				<div class="product-detail-price">from {{ product.currency.symbol}}{{ product.price }}</div>
+				<a href="{{ product.url }}">View on {{ product.partner_site }}</a>
+			</div>
+		</section>
+
+		<section class="product-detail-description">
+			<p>{{ product.description }}</p>
+		</section>
+
+
+		<section class="product-detail-similar clearfix">
+			<h3>You might also like...</h3>
+
+			{% for similar in similar_products %}
+			<figure class="product-detail-similar-product">
+				<img src="{{ similar.image.url }}">
+				<figcaption>
+					<h4>{{ similar.title }}</h4>
+				</figcaption>
+			</figure>
+			{% endfor %}
+		</section>
+	</main>
 {% endblock %}
