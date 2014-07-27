@@ -30,9 +30,9 @@
 
 			{% for similar in similar_products %}
 			<figure class="product-detail-similar-product">
-				<img src="{{ similar.image.url }}">
+				<a href="{{ similar.get_absolute_url }}"><img src="{{ similar.image.url }}"></a>
 				<figcaption>
-					<h4>{{ similar.title }}</h4>
+					<h4><a href="{{ similar.get_absolute_url }}">{{ similar.title }}</a></h4>
 				</figcaption>
 			</figure>
 			{% endfor %}

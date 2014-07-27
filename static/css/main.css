@@ -380,6 +380,11 @@ main.product-detail {
 	padding: 0 10px;
 }
 
+.product-detail-similar-product a {
+	color: #000;
+	text-decoration: none;
+}
+
 .product-detail-similar-product img {
 	width: 100%;
 }
