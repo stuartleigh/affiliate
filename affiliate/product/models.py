@@ -23,6 +23,9 @@ class Product(models.Model):
 	image = models.ImageField(upload_to=_get_standard_upload_folder, blank=True, null=True)
 	promo_image = models.ImageField(upload_to=_get_promo_upload_folder, blank=True, null=True)
 
+	class Meta:
+		ordering = ['-index']
+
 	def __unicode__(self):
 		return u"{}: {}".format(self.product_ref, self.title)
 
