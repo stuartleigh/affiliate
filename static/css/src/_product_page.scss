@@ -18,7 +18,7 @@
 			padding: 15px 30px;
 			color: #fff;
 			text-decoration: none;
-			font-family: "Open Sans", sans-serif;
+			font-family: $sans-serif;
 
 			&:hover {
 				color: #000;
@@ -69,7 +69,7 @@ main#product-detail {
 			}
 
 			a {
-				font-family: "Open sans", sans-serif;
+				font-family: $sans-serif;
 				color: #000;
 				text-decoration: none;
 				border: 1px solid #000;
@@ -123,13 +123,13 @@ main#product-detail {
 		margin: auto;
 
 		h3 {
-			font-family: 'Gentium Book Basic', serif;
+			font-family: $serif;
 			font-size: 1.5em;
 			text-align: center;
 		}
 
 		h4 {
-			font-family: 'Gentium Book Basic', serif;
+			font-family: $serif;
 			font-size: 1em;
 		}
 

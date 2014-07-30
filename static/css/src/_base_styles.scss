@@ -8,11 +8,11 @@ body, html {
 
 body {
 	padding-top: $site-header-height;
-	font-family: 'Gentium Book Basic', serif;
+	font-family: $serif;
 }
 
 header#site-header {
-	font-family: "Open Sans", sans-serif;
+	font-family: $sans-serif;
 	background: #000;
 	position: fixed;
 	width: 100%;
@@ -42,5 +42,5 @@ footer {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Open Sans", serif;
+	font-family: $sans-serif;
 }
