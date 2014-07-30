@@ -3,3 +3,4 @@ static/admin/
 media/
 affiliate/environment.py
 *.pyc
+.sass-cache

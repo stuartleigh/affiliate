@@ -1,23 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<main>
+	<main id="homepage">
 		{% for promo in promos %}
-		<section id="slide-{{ forloop.counter }}" class="promo-slide">
-			<div class="slide-container" style="background-image: url('{{ promo.promo_image.url }}');">
-				<div class="promo-info clearfix">
-					<h2 class="promo-info-title">{{ promo.title }}</h2>
-					<div class="promo-info-details">
-						<span class="promo-info-price">{{ promo.currency.symbol }}{{ promo.price }}</span>
-						<a class="promo-info-link" href="{{ promo.get_absolute_url }}">View details</a>
-					</div>
+		<section class="promo-slide" style="background-image: url('{{ promo.promo_image.url }}');">
+			<div class="info clearfix">
+				<h2>{{ promo.title }}</h2>
+				<div class="details">
+					<span class="price">{{ promo.currency.symbol }}{{ promo.price }}</span>
+					<a href="{{ promo.get_relative_url }}">View details</a>
 				</div>
 			</div>
 		</section>
 		{% endfor %}
 		<section class="site-story">
-			<h1>{{ site.name }}</h1>
-			<p>{{ site.story }}</p>
+			<h1>{{ request.site.name }}</h1>
+			<p>{{ request.site.story }}</p>
 		</section>
 		<div class="product-list clearfix">
 			{% for product in products %}
@@ -26,7 +24,7 @@
 				<figcaption>
 					<h2>{{ product.title }}</h2>
 					<span class="product-view">View details</span>
-					<a href="{{ product.get_absolute_url }}">View details</a>
+					<a href="{{ product.get_relative_url }}">View details</a>
 				</figcaption>
 			</figure>
 			{% endfor %}

@@ -6,7 +6,6 @@ def home(request):
 	promos = products.filter(is_promo=True)
 
 	context = {
-		"site": request.site,
 		"products": products,
 		"promos": promos,
 	}

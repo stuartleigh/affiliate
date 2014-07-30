@@ -38,8 +38,11 @@ class Product(models.Model):
 	def __unicode__(self):
 		return u"{}: {}".format(self.product_ref, self.title)
 
-	def get_absolute_url(self):
+	def get_relative_url(self):
 		return reverse('product-detail', kwargs={"slug": self.slug})
+
+	def get_absolute_url(self):
+		return u"http://{domain}{path}".format(domain=self.site.domain, path=self.get_relative_url())
 
 	def url(self):
 		site = self.partner_site
