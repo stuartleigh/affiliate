@@ -11,6 +11,12 @@ def _get_promo_upload_folder(instance, filename):
 	return u"{}/promo/{}".format(instance.site.domain, filename)
 
 class Product(models.Model):
+
+	THEME_CHOICES = (
+		('light', 'Light'),
+		('dark', 'Dark'),
+	)
+
 	title = models.TextField()
 	slug = models.SlugField(max_length=128, blank=True)
 
@@ -30,6 +36,7 @@ class Product(models.Model):
 
 	image = models.ImageField(upload_to=_get_standard_upload_folder, blank=True, null=True)
 	promo_image = models.ImageField(upload_to=_get_promo_upload_folder, blank=True, null=True)
+	theme = models.CharField(max_length=15, choices=THEME_CHOICES, default='light')
 
 	class Meta:
 		ordering = ['-index']

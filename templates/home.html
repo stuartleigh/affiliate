@@ -4,7 +4,7 @@
 	<main id="homepage">
 		{% for promo in promos %}
 		<section class="promo-slide" style="background-image: url('{{ promo.promo_image.url }}');">
-			<div class="info clearfix">
+			<div class="info clearfix {{ promo.theme }}">
 				<h2>{{ promo.title }}</h2>
 				<div class="details">
 					<span class="price">{{ promo.currency.symbol }}{{ promo.price }}</span>
