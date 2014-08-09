@@ -20,26 +20,25 @@ class Product(models.Model):
 	title = models.TextField()
 	slug = models.SlugField(max_length=128, blank=True)
 
-	external_path = models.TextField()
+	external_url = models.URLField()
 	product_ref = models.CharField(max_length=255, unique=True)
 
 	description = models.TextField()
 	price = models.DecimalField(decimal_places=2, max_digits=7)
 	currency = models.ForeignKey('product.Currency')
 
-	is_active = models.BooleanField(default=True)
 	is_promo = models.BooleanField(default=False)
 	partner_site = models.ForeignKey('site.AffiliateSite')
 	site = models.ForeignKey('site.Site', related_name="products")
 
-	index = models.IntegerField(default=0)
+	added_date = models.DateTimeField(auto_now_add=True)
 
 	image = models.ImageField(upload_to=_get_standard_upload_folder, blank=True, null=True)
 	promo_image = models.ImageField(upload_to=_get_promo_upload_folder, blank=True, null=True)
 	theme = models.CharField(max_length=15, choices=THEME_CHOICES, default='light')
 
 	class Meta:
-		ordering = ['-index']
+		ordering = ['-added_date']
 		unique_together = ("site", "slug")
 
 	def __unicode__(self):
@@ -50,14 +49,6 @@ class Product(models.Model):
 
 	def get_absolute_url(self):
 		return u"http://{domain}{path}".format(domain=self.site.domain, path=self.get_relative_url())
-
-	def url(self):
-		site = self.partner_site
-		return u"{domain}{path}{code}".format(
-			domain=site.domain,
-			path=self.external_path,
-			code=site.affiliate_tracking_code
-		)
 
 	def similar_products(self, count=4):
 		products = list(Product.objects.filter(site_id=self.site_id).exclude(id=self.id))

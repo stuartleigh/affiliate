@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 def home(request):
-	products = request.site.products.select_related('currency').filter(is_active=True)
+	products = request.site.products.select_related('currency')
 	promos = products.filter(is_promo=True)
 
 	context = {

@@ -25,6 +25,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'affiliate.product',
     'affiliate.site',
+    'affiliate.utils',
 )
 
 MIDDLEWARE_CLASSES = (
