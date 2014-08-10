@@ -11,3 +11,9 @@ def home(request):
 	}
 
 	return render(request, "home.html", context)
+
+
+def sitemap(request):
+	products = request.site.products.all()
+	context = {"products": products}
+	return render(request, "sitemap.xml", context, content_type="application/xhtml+xml")
