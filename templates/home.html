@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load markdown_tags %}
 
 {% block content %}
 	<main id="homepage">
@@ -15,7 +16,7 @@
 		{% endfor %}
 		<section class="site-story">
 			<h1>{{ request.site.name }}</h1>
-			<p>{{ request.site.story }}</p>
+			<p>{{ request.site.story|markdown }}</p>
 		</section>
 		<div class="product-list clearfix">
 			{% for product in products %}
