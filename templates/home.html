@@ -16,7 +16,7 @@
 		{% endfor %}
 		<section class="site-story">
 			<h1>{{ request.site.name }}</h1>
-			<p>{{ request.site.story|markdown }}</p>
+			{{ request.site.story|markdown }}
 		</section>
 		<div class="product-list clearfix">
 			{% for product in products %}
