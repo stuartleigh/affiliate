@@ -363,9 +363,7 @@ th {
   clear: both; }
 
 body, html {
-  height: 100%;
-  min-height: 100%;
-  background-color: black; }
+  background-color: white; }
 
 body {
   padding-top: 53px;
@@ -400,7 +398,8 @@ footer {
   text-align: right;
   padding: 10px 25px;
   color: #cccccc;
-  font-size: 12px; }
+  font-size: 12px;
+  background: black; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans", sans-serif; }
@@ -409,6 +408,16 @@ hr {
   border: none;
   border-bottom: 1px dotted #ccc;
   margin: 20px; }
+
+main#error {
+  margin-top: 200px; }
+  main#error h1 {
+    text-transform: uppercase;
+    text-align: center; }
+  main#error p {
+    text-align: center; }
+  main#error a {
+    color: #000; }
 
 main#homepage .promo-slide {
   position: relative;

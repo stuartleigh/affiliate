@@ -1,6 +1,9 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
+handler404 = 'affiliate.views.custom_404'
+handler404 = 'affiliate.views.custom_500'
+
 urlpatterns = patterns('',
     url(r'^$', 'affiliate.views.home', name='home'),
     url(r'^p/', include('affiliate.product.urls')),

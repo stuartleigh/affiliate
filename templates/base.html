@@ -14,18 +14,22 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'css/site.css' %}">
 	</head>
 	<body>
+		{% block header %}
 		<header id="site-header">
 			<h1><a href="/">{{ request.site.name }}</a></h1>
 			<div class="social">
 				<a href="https://twitter.com/verymanlythings" class="twitter-follow-button" data-show-count="false" data-lang="en" data-size="large">Follow @verymanlythings</a>
 			</div>
 		</header>
+		{% endblock %}
 		{% block content %}{% endblock %}
+		{% block footer %}
 		<footer>
 			<div class="small">
 				&copy; {% now "Y" %} {{ request.site.name }}
 			</div>
 		</footer>
+		{% endblock %}
 		{% block scripts %}
 		<script>
 			{% if debug %}/* -- commented for debug --{% endif %}
