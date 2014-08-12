@@ -398,6 +398,11 @@ footer {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans", sans-serif; }
 
+hr {
+  border: none;
+  border-bottom: 1px dotted #ccc;
+  margin: 20px; }
+
 main#homepage .promo-slide {
   position: relative;
   background-repeat: no-repeat;
