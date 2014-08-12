@@ -26,10 +26,21 @@ header#site-header {
 		margin: 0;
 		padding: 0 15px;
 		line-height: $site-header-height;
+		float: left;
 
 		a {
 			color: #fff;
 			text-decoration: none;
+		}
+	}
+
+	.social {
+		float: right;
+		padding: 0 15px;
+		margin-top: 12px;
+
+		a {
+			color: #000;
 		}
 	}
 }

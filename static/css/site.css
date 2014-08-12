@@ -384,10 +384,17 @@ header#site-header {
     text-transform: uppercase;
     margin: 0;
     padding: 0 15px;
-    line-height: 53px; }
+    line-height: 53px;
+    float: left; }
     header#site-header h1 a {
       color: #fff;
       text-decoration: none; }
+  header#site-header .social {
+    float: right;
+    padding: 0 15px;
+    margin-top: 12px; }
+    header#site-header .social a {
+      color: #000; }
 
 footer {
   text-align: right;
