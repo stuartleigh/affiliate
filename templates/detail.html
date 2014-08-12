@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% load markdown_tags %}
 
+{% block meta %}
+	{{ block.super }}
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@verymanlythings">
+	<meta name="twitter:title" content="{{ product.title }}">
+	<meta name="twitter:description" content="{{ product.description|summary }}">
+	<meta name="twitter:image:src" content="{{ request.site.domain }}{{ product.image.url }}">
+{% endblock %}
+
 {% block content %}
 	{% if product.promo_image %}
 	<header class="product-promo" style="background-image: url('{{ product.promo_image.url }}');">
