@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<main id="error">
+		<h1>This page doesn't exist</h1>
+		<p><a href="{{ product.get_relative_url }}">Why don't you try this one?</a></p>
+	</main>
+{% endblock %}
+
+{% block footer %}{% endblock %}
