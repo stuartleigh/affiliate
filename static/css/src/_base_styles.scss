@@ -12,7 +12,7 @@ body {
 
 header#site-header {
 	font-family: $sans-serif;
-	background: #000;
+	background: $light-bg;
 	position: fixed;
 	width: 100%;
 	z-index: 2000;
@@ -28,7 +28,7 @@ header#site-header {
 		float: left;
 
 		a {
-			color: #fff;
+			color: $dark-grey;
 			text-decoration: none;
 		}
 	}
