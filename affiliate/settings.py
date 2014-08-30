@@ -8,13 +8,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
 from .environment import *
 
 
 ALLOWED_HOSTS = ["*"]
+
+
+if not LOCAL_INSTALLED_APPS:
+    LOCAL_INSTALLED_APPS = ()
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -25,8 +28,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'affiliate.product',
     'affiliate.site',
+    'affiliate.tag',
     'affiliate.utils',
-)
+) + LOCAL_INSTALLED_APPS
+
 
 MIDDLEWARE_CLASSES = (
     'affiliate.site.middleware.MultiSiteMiddleware',

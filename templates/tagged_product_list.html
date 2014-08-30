@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load markdown_tags %}
+
+{% block content %}
+	<main id="tagged-products">
+		<section class="intro">
+			<h1>{{ tag.title }}</h1>
+			{{ tag.description|markdown}}
+		</section>
+
+		<section class="products clearfix">
+			{% for product in tag.product_set.all %}
+			<figure class="product">
+				<a href="{{ product.get_relative_url }}"><img src="{{ product.image.url }}"></a>
+				<figcaption>
+					<h4><a href="{{ product.get_relative_url }}">{{ product.title }}</a></h4>
+				</figcaption>
+			</figure>
+			{% endfor %}
+		</section>
+	</main>
+{% endblock %}

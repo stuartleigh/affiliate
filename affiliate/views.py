@@ -11,6 +11,7 @@ def home(request):
 		"products": products,
 		"promos": promos,
 	}
+	print("IP Address for debug-toolbar: " + request.META['REMOTE_ADDR'])
 
 	return render(request, "home.html", context)
 
@@ -25,10 +26,10 @@ def custom_404(request):
 	count = request.site.products.count()
 	random_num = random.choice(range(1, count))
 	random_product = request.site.products.all()[random_num - 1]
-	return render(request, '404.html', {"product": random_product})
+	return render(request, '404.html', {"product": random_product}, status=404)
 
 
 def custom_500(request):
 	count = request.site.products.count()
 	random_num = random.choice(range(1, count))
-	return render(request, '500.html')
+	return render(request, '500.html', status=500)

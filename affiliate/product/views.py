@@ -12,12 +12,16 @@ from .models import Product
 def product_detail(request, slug):
 
 	try:
-		product = Product.objects.select_related('currency').get(site=request.site, slug=slug)
+		product = Product.objects.select_related('currency', 'partner_site').get(site=request.site, slug=slug)
 	except Product.DoesNotExist:
 		raise http.Http404
 
+	# saves an SQL lookup when rendering product.get_absolute_url
+	product.site = request.site
+
 	context = {
 		'product': product,
+		'tags': product.tags.all(),
 		'similar_products': product.similar_products(count=4),
 	}
 

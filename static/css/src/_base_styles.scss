@@ -8,6 +8,7 @@ body, html {
 body {
 	padding-top: $site-header-height;
 	font-family: $serif;
+	background: url('/static/images/twitterbg.jpg');
 }
 
 header#site-header {
@@ -27,6 +28,11 @@ header#site-header {
 		line-height: $site-header-height;
 		float: left;
 
+		@media (max-width: 568px) {
+			float: none;
+			text-align: center;
+		}
+
 		a {
 			color: $dark-grey;
 			text-decoration: none;
@@ -40,6 +46,13 @@ header#site-header {
 
 		a {
 			color: #000;
+		}
+
+		@media (max-width: 568px) {
+			float: none;
+			text-align: center;
+			margin-bottom: 10px;
+			margin-top: 0;
 		}
 	}
 }
@@ -56,9 +69,13 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $sans-serif;
 }
 
+p {
+	line-height: 1.5em;
+}
+
 hr {
 	border: none;
-	border-bottom: 1px dotted #ccc;
+	border-bottom: 1px solid #ccc;
 	margin: 20px;
 }
 

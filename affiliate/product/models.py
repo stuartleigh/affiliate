@@ -37,6 +37,8 @@ class Product(models.Model):
 	promo_image = models.ImageField(upload_to=_get_promo_upload_folder, blank=True, null=True)
 	theme = models.CharField(max_length=15, choices=THEME_CHOICES, default='light')
 
+	tags = models.ManyToManyField('tag.Tag', blank=True, null=True)
+
 	class Meta:
 		ordering = ['-added_date']
 		unique_together = ("site", "slug")
