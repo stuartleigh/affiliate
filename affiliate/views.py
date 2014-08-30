@@ -18,7 +18,12 @@ def home(request):
 
 def sitemap(request):
 	products = request.site.products.all()
-	context = {"products": products}
+	tags = request.site.tags.all()
+
+	context = {
+		"products": products,
+		"tags": tags,
+	}
 	return render(request, "sitemap.xml", context, content_type="application/xhtml+xml")
 
 

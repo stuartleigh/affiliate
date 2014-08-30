@@ -33,7 +33,7 @@
 					{% if not forloop.first %}
 						• 
 					{% endif %}
-					<a href="{{ tag.get_absolute_url }}" class="tag">{{ tag }}</a>
+					<a href="{{ tag.get_relative_url }}" class="tag">{{ tag }}</a>
 				{% endfor %}
 				<hr />
 				{% endif %}

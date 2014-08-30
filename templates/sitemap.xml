@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+	<url>
+		<loc>http://{{ request.site.domain }}</loc>
+	</url>
     {% for product in products %}
     <url>
         <loc>{{ product.get_absolute_url }}</loc>
+        <image:image>
+			<image:loc>{{ product.image.url }}</image:loc>
+		</image:image>
+		{% if product.promo_image %}
+		<image:image>
+			<image:loc>{{ product.promo_image.url }}</image:loc>
+		</image:image>
+		{% endif %}
+    </url>
+    {% endfor %}
+    {% for tag in tags %}
+    <url>
+        <loc>{{ tag.get_absolute_url }}</loc>
     </url>
     {% endfor %}
 </urlset>
