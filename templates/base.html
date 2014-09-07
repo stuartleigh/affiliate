@@ -23,7 +23,10 @@
 			</div>
 		</header>
 		{% endblock %}
-		{% block content %}{% endblock %}
+		<div id="content-wrapper">
+			{% block content %}{% endblock %}
+			<div id="content-push"></div>
+		</div>
 		{% block footer %}
 		<footer>
 			<div class="small">

@@ -3,10 +3,10 @@ $site-footer-height: 35px;
 
 body, html {
 	background-color: $light-bg;
+	min-height: 100%;
 }
 
 body {
-	padding-top: $site-header-height;
 	font-family: $serif;
 	background: url('/static/images/twitterbg.jpg');
 }
@@ -57,12 +57,27 @@ header#site-header {
 	}
 }
 
+#content-wrapper {
+	padding-top: $site-header-height;
+	min-height: 100%;
+	margin-bottom: -$site-footer-height;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#content-push {
+	height: $site-footer-height;
+}
+
 footer {
 	text-align: right;
 	padding: 10px 25px;
 	color: $light-grey;
 	font-size: 12px;
 	background: $dark-bg;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: $site-footer-height;
 }
 
 h1, h2, h3, h4, h5, h6 {
