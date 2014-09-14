@@ -25,7 +25,7 @@ class ProductAdmin(admin.ModelAdmin):
     	return super(ProductAdmin, self).get_form(request, obj=obj, **kwargs)
 
     def formfield_for_manytomany(self, db_field, request, **kwargs):
-    	if getattr(self, 'obj'):
+    	if hasattr(self, 'obj'):
     		site = self.obj.site
     	else:
     		site = request.site
