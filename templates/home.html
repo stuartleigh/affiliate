@@ -12,6 +12,14 @@
 					<a href="{{ promo.get_relative_url }}">View details</a>
 				</div>
 			</div>
+			{% if forloop.first %}
+				<div class="scrollDown {{ promo.theme }}">
+				    Scroll Down
+				    <svg height="20" width="200">
+				        <path d="M100 20 L200 0 L100 10 L0 0 Z" />
+				    </svg>
+				</div>
+			{% endif %}
 		</section>
 		{% endfor %}
 		<section class="site-story">

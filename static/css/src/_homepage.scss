@@ -81,6 +81,24 @@ main#homepage {
 			}
 
 		}
+
+		.scrollDown {
+		    display: block;
+		    text-align: center;
+		    position: absolute;
+		    bottom: 70px;
+		    width: 200px;
+		    left: 50%;
+		    margin-left: -100px;
+
+		    &.dark svg {
+		    	fill: #000;
+		    }
+
+		    &.light svg {
+		    	fill: #fff;
+		    }
+		}
 	}
 
 	.site-story {
