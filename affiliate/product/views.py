@@ -1,6 +1,7 @@
 import datetime
 
 from django import http
+from django.conf import settings
 from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render
 
@@ -26,6 +27,23 @@ def product_detail(request, slug):
 	}
 
 	return render(request, "detail.html", context)
+
+
+def product_api(request):
+	try:
+		page_num = int(request.GET['page'])
+	except (ValueError, KeyError):
+		return http.HttpResponseBadRequest()
+
+	page_size = settings.PRODUCT_API_PAGE_SIZE
+	offset = (page_num - 1) * page_size
+
+	products = Product.objects.filter(site=request.site)[offset:offset+page_size]
+
+	if not products:
+		return http.HttpResponseBadRequest()
+
+	return render(request, 'snippets/product_grid.html', {"products": products});
 
 
 @permission_required('product.change_product')

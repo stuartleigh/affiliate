@@ -18,16 +18,46 @@
 			<h1>{{ request.site.name }}</h1>
 			{{ request.site.story|markdown }}
 		</section>
-		<div class="product-list clearfix">
-			{% for product in products %}
-			<figure class="product">
-				<img src="{{ product.image.url }}">
-				<figcaption>
-					<h2>{{ product.title }}</h2>
-					<a href="{{ product.get_relative_url }}">View details</a>
-				</figcaption>
-			</figure>
-			{% endfor %}
+		<div class="product-list clearfix" id="product-grid">
+			{% include 'snippets/product_grid.html' %}
 		</div>
 	</main>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script type="text/javascript">
+(function(){
+	function request(B,A){this.bindFunction=function(E,D){return function(){return E.apply(D,[D])}};this.stateChange=function(D){if(this.request.readyState==4){this.callbackFunction(this.request)}};this.getRequest=function(){if(window.ActiveXObject){return new ActiveXObject("Microsoft.XMLHTTP")}else{if(window.XMLHttpRequest){return new XMLHttpRequest()}}return false};this.postBody=(arguments[2]||"");this.callbackFunction=A;this.url=B;this.request=this.getRequest();if(this.request){var C=this.request;C.onreadystatechange=this.bindFunction(this.stateChange,this);if(this.postBody!==""){C.open("POST",B,true);C.setRequestHeader("X-Requested-With","XMLHttpRequest");C.setRequestHeader("Content-type","application/x-www-form-urlencoded");}else{C.open("GET",B,true)}C.send(this.postBody)}};
+
+	function checkForScroll() {
+		if (loading) {return;}
+		var body = document.body;
+		var html = document.documentElement;
+		var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+		var scrollHeight = window.scrollY + window.innerHeight;
+		if (height * 0.9 <= scrollHeight) {
+			loading = true;
+			request('/p/api/?page=' + page, handleResponse);
+			++page;
+		}
+	}
+
+	function handleResponse(res) {
+		if(res.status === 200) {
+			var node = document.getElementById('product-grid');
+			node.insertAdjacentHTML('beforeend', res.responseText);
+			console.log(page);
+			loading = false;
+		} else {
+			clearInterval(scrollChecker);
+		}
+	}
+
+	var loading = false;
+	var page = 2;
+	var scrollChecker = setInterval(checkForScroll, 500);
+
+})();
+</script>
 {% endblock %}

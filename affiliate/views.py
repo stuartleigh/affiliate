@@ -1,5 +1,6 @@
 import random
 
+from django.conf import settings
 from django.shortcuts import render
 
 
@@ -8,10 +9,9 @@ def home(request):
 	promos = products.filter(is_promo=True)
 
 	context = {
-		"products": products,
-		"promos": promos,
+		"products": products[:settings.PRODUCT_API_PAGE_SIZE],
+		"promos": promos[:3],
 	}
-	print("IP Address for debug-toolbar: " + request.META['REMOTE_ADDR'])
 
 	return render(request, "home.html", context)
 
