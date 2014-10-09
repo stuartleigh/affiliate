@@ -11,13 +11,6 @@
 {% endblock %}
 
 {% block content %}
-	{% if product.promo_image %}
-	<header class="product-promo" style="background-image: url('{{ product.promo_image.url }}');">
-		<hgroup class="clearfix {{ product.theme }}">
-			<a href="{{ product.external_url }}">View on {{ product.partner_site }}</a>
-		</hgroup>
-	</header>
-	{% endif %}
 	<main id="product-detail">
 		<section class="product clearfix">
 			<figure>

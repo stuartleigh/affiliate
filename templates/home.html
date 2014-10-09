@@ -47,7 +47,6 @@
 		if(res.status === 200) {
 			var node = document.getElementById('product-grid');
 			node.insertAdjacentHTML('beforeend', res.responseText);
-			console.log(page);
 			loading = false;
 		} else {
 			clearInterval(scrollChecker);
