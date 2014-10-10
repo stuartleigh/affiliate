@@ -16,7 +16,7 @@
 				<div class="scrollDown {{ promo.theme }}">
 				    Scroll Down
 				    <svg height="20" width="200">
-				        <path d="M100 20 L200 0 L100 10 L0 0 Z" />
+				        <path d="M100 15 L200 0 L100 10 L0 0 Z" />
 				    </svg>
 				</div>
 			{% endif %}
@@ -29,42 +29,20 @@
 		<div class="product-list clearfix" id="product-grid">
 			{% include 'snippets/product_grid.html' %}
 		</div>
+		<div id="scrollLoader">
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
+		</div>
 	</main>
 {% endblock %}
 
 {% block scripts %}
 {{ block.super }}
 <script type="text/javascript">
-(function(){
-	function request(B,A){this.bindFunction=function(E,D){return function(){return E.apply(D,[D])}};this.stateChange=function(D){if(this.request.readyState==4){this.callbackFunction(this.request)}};this.getRequest=function(){if(window.ActiveXObject){return new ActiveXObject("Microsoft.XMLHTTP")}else{if(window.XMLHttpRequest){return new XMLHttpRequest()}}return false};this.postBody=(arguments[2]||"");this.callbackFunction=A;this.url=B;this.request=this.getRequest();if(this.request){var C=this.request;C.onreadystatechange=this.bindFunction(this.stateChange,this);if(this.postBody!==""){C.open("POST",B,true);C.setRequestHeader("X-Requested-With","XMLHttpRequest");C.setRequestHeader("Content-type","application/x-www-form-urlencoded");}else{C.open("GET",B,true)}C.send(this.postBody)}};
-
-	function checkForScroll() {
-		if (loading) {return;}
-		var body = document.body;
-		var html = document.documentElement;
-		var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-		var scrollHeight = window.scrollY + window.innerHeight;
-		if (height * 0.9 <= scrollHeight) {
-			loading = true;
-			request('/p/api/?page=' + page, handleResponse);
-			++page;
-		}
-	}
-
-	function handleResponse(res) {
-		if(res.status === 200) {
-			var node = document.getElementById('product-grid');
-			node.insertAdjacentHTML('beforeend', res.responseText);
-			loading = false;
-		} else {
-			clearInterval(scrollChecker);
-		}
-	}
-
-	var loading = false;
-	var page = 2;
-	var scrollChecker = setInterval(checkForScroll, 500);
-
-})();
+	Components.infiniteScroll('/p/api/', function(res) {
+		var node = document.getElementById('product-grid');
+		node.insertAdjacentHTML('beforeend', res.responseText);
+	});
 </script>
 {% endblock %}

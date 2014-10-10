@@ -4,12 +4,12 @@
 	<head>
 		{% block meta %}
 		<meta charset="UTF-8">
-                <meta name="google-site-verification" content="47mrkhgjyVNoPKfjh_ci2o3WsX9FlOOzNpWkfgguME8" />
+        <meta name="google-site-verification" content="47mrkhgjyVNoPKfjh_ci2o3WsX9FlOOzNpWkfgguME8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="description" content="{{ request.site.meta_description }}">
-		{% endblock %}
 		<title>{{ request.site.meta_title }}</title>
+		{% endblock %}
 		<link href='//fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
 		<link href='//fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/site.css' %}">
@@ -19,7 +19,7 @@
 		<header id="site-header">
 			<h1><a href="/">{{ request.site.name }}</a></h1>
 			<div class="social">
-				<a href="https://twitter.com/verymanlythings" class="twitter-follow-button" data-show-count="false" data-lang="en" data-size="large">Follow @verymanlythings</a>
+				<a href="https://twitter.com/intent/user/?screen_name=verymanlythings" class="button twitter follow"><i></i>@verymanlythings</a>
 			</div>
 		</header>
 		{% endblock %}
@@ -35,6 +35,7 @@
 		</footer>
 		{% endblock %}
 		{% block scripts %}
+		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 		<script>
 			{% if debug %}/* -- commented for debug --{% endif %}
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -46,7 +47,6 @@
 			ga('send', 'pageview');
 			{% if debug %}-- commented for debug -- */{% endif %}
 		</script>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		{% endblock %}
 	</body>
 </html>

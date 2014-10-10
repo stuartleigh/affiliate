@@ -19,7 +19,7 @@
 			<div class="details">
 				<h1>{{ product.title }}</h1>
 				<div class="price">from {{ product.currency.symbol}}{{ product.price }}</div>
-				<a href="{{ product.external_url }}" class="partner-link">View on {{ product.partner_site }}</a>
+				<a href="{{ product.external_url }}" class="button partner-link">View on {{ product.partner_site }}</a>
 				<hr />
 				{% if tags %}
 				{% for tag in tags %}
@@ -30,7 +30,7 @@
 				{% endfor %}
 				<hr />
 				{% endif %}
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ product.get_absolute_url }}" data-lang="en" data-size="large" data-count="none" data-hashtags="verymanlythings" data-text="Thinking of getting this {{ product.title }} I found @verymanlythings">Tweet</a>
+				<a href="https://twitter.com/intent/tweet?url={{ product.get_absolute_url|urlencode }}&via=verymanlythings" class="button twitter tweet"><i></i>Tweet</a>
 			</div>
 		</section>
 

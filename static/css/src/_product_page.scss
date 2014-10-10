@@ -86,16 +86,7 @@ main#product-detail {
 
 			a.partner-link {
 				font-family: $sans-serif;
-				color: #000;
-				text-decoration: none;
-				border: 1px solid #000;
 				padding: 15px 40px;
-				display: inline-block;
-
-				&:hover {
-					color: #fff;
-					background: #000;
-				}
 			}
 
 			a.tag {
@@ -125,7 +116,7 @@ main#product-detail {
 					font-size: 2em;
 				}
 
-				a {
+				a.partner-link {
 					display: block;
 					text-align: center;
 				}
